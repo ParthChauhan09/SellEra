@@ -1,0 +1,13 @@
+delete review middleware of mongoose 
+
+add view reviews in productList in vendor
+
+default profile picture
+
+review model and order model implimentation 
+
+Joi validator npm i joi //read docs
+
+error template
+
+ref design https://s3-alpha.figma.com/hub/file/3677930348/e3421eb5-3604-412d-8fff-96a0d304880e-cover.png

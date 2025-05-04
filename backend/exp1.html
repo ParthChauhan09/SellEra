@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Perfect Home - Rental Website</title>
+    <link rel="stylesheet" href="styles.css"> 
+
+    <style>
+        /* Reset and General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.main-nav .nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav .nav-item {
+    margin-left: 20px;
+}
+
+.main-nav .nav-link {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-link:hover {
+    color: #007bff;
+}
+
+/* Hero Section Styles */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-bg.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input,
+.search-select,
+.search-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.search-input {
+    width: 300px;
+}
+
+.search-select {
+    width: 200px;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Featured Listings Styles */
+.featured-listings {
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.listing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.listing-item {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.listing-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.listing-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.listing-details {
+    padding: 20px;
+}
+
+.listing-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.listing-location,
+.listing-price {
+    margin-bottom: 5px;
+}
+
+.listing-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.listing-link:hover {
+    background-color: #0056b3;
+}
+
+/* Agents Section Styles */
+.agents-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.agent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.agent-card {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.agent-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.agent-details {
+    padding: 20px;
+}
+
+.agent-name {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.agent-title,
+.agent-contact {
+    margin-bottom: 5px;
+}
+
+/* Testimonials Styles */
+.testimonials {
+    padding: 50px 0;
+}
+
+.testimonial-slider {
+    text-align: center;
+}
+
+.testimonial-item {
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.testimonial-author {
+    font-weight: bold;
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #555;
+    padding-top: 20px;
+}
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">RentHub</a>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/listings" class="nav-link">Listings</a></li>
+                        <li class="nav-item"><a href="/agents" class="nav-link">Agents</a></li>
+                        <li class="nav-item"><a href="/about" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="/register" class="nav-link">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover Your Ideal Rental Home</h1>
+                <p class="hero-subtitle">Explore a wide range of properties in your desired location.</p>
+                <div class="search-form">
+                    <input type="text" id="search-location" class="search-input" placeholder="Enter Location">
+                    <select id="search-type" class="search-select">
+                        <option value="">Any Type</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="house">House</option>
+                        <option value="condo">Condo</option>
+                    </select>
+                    <button id="search-button" class="search-button">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-listings">
+        <div class="container">
+            <h2 class="section-title">Featured Listings</h2>
+            <div class="listing-grid" id="featured-listings-grid">
+                <div class="listing-item">
+                    <img src="placeholder-image.jpg" alt="Listing Image" class="listing-image">
+                    <div class="listing-details">
+                        <h3 class="listing-title">Cozy Apartment in Downtown</h3>
+                        <p class="listing-location">City Center, State</p>
+                        <p class="listing-price">$1,200/month</p>
+                        <a href="/listing/1" class="listing-link">View Details</a>
+                    </div>
+                </div>
+                <div class="listing-item">
+                    <img src="placeholder-image.jpg" alt="Listing Image" class="listing-image">
+                    <div class="listing-details">
+                        <h3 class="listing-title">Spacious Family House</h3>
+                        <p class="listing-location">Suburb Area, State</p>
+                        <p class="listing-price">$2,500/month</p>
+                        <a href="/listing/2" class="listing-link">View Details</a>
+                    </div>
+                </div>
+                <div class="listing-item">
+                    <img src="placeholder-image.jpg" alt="Listing Image" class="listing-image">
+                    <div class="listing-details">
+                        <h3 class="listing-title">Modern Condo with City View</h3>
+                        <p class="listing-location">Uptown, State</p>
+                        <p class="listing-price">$1,800/month</p>
+                        <a href="/listing/3" class="listing-link">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="agents-section">
+        <div class="container">
+            <h2 class="section-title">Our Trusted Agents</h2>
+            <div class="agent-grid">
+                <div class="agent-card">
+                    <img src="placeholder-agent.jpg" alt="Agent Image" class="agent-image">
+                    <div class="agent-details">
+                        <h3 class="agent-name">John Doe</h3>
+                        <p class="agent-title">Real Estate Agent</p>
+                        <p class="agent-contact"><a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="placeholder-agent.jpg" alt="Agent Image" class="agent-image">
+                    <div class="agent-details">
+                        <h3 class="agent-name">Jane Smith</h3>
+                        <p class="agent-title">Rental Specialist</p>
+                        <p class="agent-contact"><a href="mailto:jane.smith@example.com">jane.smith@example.com</a></p>
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <img src="placeholder-agent.jpg" alt="Agent Image" class="agent-image">
+                    <div class="agent-details">
+                        <h3 class="agent-name">David Lee</h3>
+                        <p class="agent-title">Property Manager</p>
+                        <p class="agent-contact"><a href="mailto:david.lee@example.com">david.lee@example.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"RentHub made finding my new apartment a breeze! The agents were incredibly helpful and responsive."</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"I found the perfect house for my family through RentHub. Highly recommend their services!"</p>
+                    <p class="testimonial-author">- Michael B.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We are dedicated to helping you find your dream rental home.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/listings">Listings</a></li>
+                        <li><a href="/agents">Agents</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@renthub.com</p>
+                    <p>Phone: +1 123-456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RentHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> </body>
+</html>
