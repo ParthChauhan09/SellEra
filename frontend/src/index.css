@@ -96,14 +96,58 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-sellera-purple text-white px-4 py-2 rounded-md hover:bg-sellera-purple-dark transition-colors;
+    @apply bg-sellera-purple text-white px-4 py-2 rounded-md hover:bg-sellera-purple-dark transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5;
   }
-  
+
   .btn-secondary {
-    @apply bg-white text-sellera-purple border border-sellera-purple px-4 py-2 rounded-md hover:bg-sellera-purple-light transition-colors;
+    @apply bg-white text-sellera-purple border border-sellera-purple px-4 py-2 rounded-md hover:bg-sellera-purple-light transition-all duration-300 hover:shadow-sm transform hover:-translate-y-0.5;
   }
-  
+
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .page-transition {
+    @apply animate-fade-in;
+  }
+
+  .product-card {
+    @apply bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md;
+  }
+
+  .product-image {
+    @apply w-full h-48 object-cover transition-transform duration-500 hover:scale-105;
+  }
+
+  .input-animated {
+    @apply transition-all duration-300 border-b-2 border-gray-300 focus:border-sellera-purple;
+  }
+
+  .nav-link {
+    @apply relative text-gray-700 hover:text-sellera-purple transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute w-0 h-0.5 bg-sellera-purple left-0 -bottom-1 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .category-badge {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .category-badge.electronics {
+    @apply bg-sellera-blue text-blue-800;
+  }
+
+  .category-badge.clothing {
+    @apply bg-sellera-pink text-pink-800;
+  }
+
+  .category-badge.accessories {
+    @apply bg-sellera-yellow text-yellow-800;
   }
 }

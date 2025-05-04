@@ -1,15 +1,13 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-mongoose
-  .connect("mongodb://127.0.0.1/SellEradb")
-  .then()
-  .catch((e) => {
-    // console.log(e);
-  });
+dotenv.config();
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1/SellEradb";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1/SellEradb", {
+    await mongoose.connect(MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

@@ -23,19 +23,20 @@ const Cart: React.FC = () => {
       navigate('/login');
       return;
     }
-    
+
     if (cart.length === 0) {
       toast.error('Your cart is empty');
       return;
     }
-    
+
     setIsCheckingOut(true);
     try {
-      await orderApi.createOrder();
-      
+      // Pass the cart items to the API
+      await orderApi.createOrder(cart);
+
       // Clear cart after successful order
       clearCart();
-      
+
       toast.success('Order placed successfully!');
       navigate('/orders');
     } catch (error) {
@@ -49,9 +50,9 @@ const Cart: React.FC = () => {
   const updateQuantity = (productId: string, currentQuantity: number, change: number) => {
     const product = cart.find(item => item.product._id === productId)?.product;
     if (!product) return;
-    
+
     const newQuantity = currentQuantity + change;
-    
+
     if (newQuantity <= 0) {
       removeFromCart(productId);
     } else {
@@ -89,14 +90,14 @@ const Cart: React.FC = () => {
                       <TableCell>
                         <div className="flex items-center space-x-3">
                           <div className="w-16 h-16 relative bg-gray-100 rounded">
-                            <img 
-                              src={item.product.image?.url || '/placeholder.svg'} 
-                              alt={item.product.name} 
+                            <img
+                              src={item.product.image?.url || '/placeholder.svg'}
+                              alt={item.product.name}
                               className="w-full h-full object-cover rounded"
                             />
                           </div>
                           <div>
-                            <Link 
+                            <Link
                               to={`/products/${item.product._id}`}
                               className="font-medium hover:text-sellera-purple"
                             >
@@ -107,14 +108,14 @@ const Cart: React.FC = () => {
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center border rounded-md max-w-[120px]">
-                          <button 
+                          <button
                             className="px-2 py-1 border-r"
                             onClick={() => updateQuantity(item.product._id, item.quantity, -1)}
                           >
                             <Minus className="h-4 w-4" />
                           </button>
                           <span className="px-3 py-1 min-w-[30px] text-center">{item.quantity}</span>
-                          <button 
+                          <button
                             className="px-2 py-1 border-l"
                             onClick={() => updateQuantity(item.product._id, item.quantity, 1)}
                           >
@@ -138,22 +139,22 @@ const Cart: React.FC = () => {
                   ))}
                 </TableBody>
               </Table>
-              
+
               <div className="flex justify-end mt-6">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={clearCart}
                 >
                   Clear Cart
                 </Button>
               </div>
             </div>
-            
+
             {/* Order Summary */}
             <div className="md:w-1/3">
               <div className="bg-gray-50 p-6 rounded-lg border">
                 <h3 className="text-xl font-bold mb-4">Order Summary</h3>
-                
+
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between">
                     <span>Subtotal</span>
@@ -169,8 +170,8 @@ const Cart: React.FC = () => {
                     <span>${totalPrice.toFixed(2)}</span>
                   </div>
                 </div>
-                
-                <Button 
+
+                <Button
                   className="w-full bg-sellera-purple hover:bg-sellera-purple-dark"
                   onClick={handleCheckout}
                   disabled={isCheckingOut}
@@ -183,9 +184,9 @@ const Cart: React.FC = () => {
                     </>
                   )}
                 </Button>
-                
+
                 <div className="mt-6 text-center">
-                  <Link 
+                  <Link
                     to="/products"
                     className="text-sellera-purple hover:underline flex items-center justify-center"
                   >

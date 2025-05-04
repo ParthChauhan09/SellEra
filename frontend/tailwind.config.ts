@@ -71,7 +71,7 @@ export default {
           },
           yellow: '#FEF7CD',
           orange: '#FEC6A1',
-          green: '#F2FCE2', 
+          green: '#F2FCE2',
           blue: '#D3E4FD',
           pink: '#FFDEE2',
           peach: '#FDE1D3',
@@ -110,12 +110,78 @@ export default {
             opacity: '1',
             transform: 'translateY(0)'
           }
+        },
+        'fade-in-right': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(20px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)'
+          }
+        },
+        'fade-in-left': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(-20px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)'
+          }
+        },
+        'slide-up': {
+          '0%': {
+            transform: 'translateY(100%)'
+          },
+          '100%': {
+            transform: 'translateY(0)'
+          }
+        },
+        'zoom-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(0.95)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)'
+          }
+        },
+        'bounce-in': {
+          '0%': {
+            transform: 'scale(0.8)',
+            opacity: '0'
+          },
+          '50%': {
+            transform: 'scale(1.05)',
+            opacity: '0.8'
+          },
+          '100%': {
+            transform: 'scale(1)',
+            opacity: '1'
+          }
+        },
+        'pulse-light': {
+          '0%, 100%': {
+            opacity: '1'
+          },
+          '50%': {
+            opacity: '0.7'
+          }
         }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in': 'fade-in 0.3s ease-out'
+        'fade-in': 'fade-in 0.3s ease-out',
+        'fade-in-right': 'fade-in-right 0.4s ease-out',
+        'fade-in-left': 'fade-in-left 0.4s ease-out',
+        'slide-up': 'slide-up 0.4s ease-out',
+        'zoom-in': 'zoom-in 0.3s ease-out',
+        'bounce-in': 'bounce-in 0.5s ease-out',
+        'pulse-light': 'pulse-light 2s ease-in-out infinite'
 			}
 		}
 	},
