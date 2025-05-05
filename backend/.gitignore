@@ -6,7 +6,7 @@ yarn-error.log
 package-lock.json
 yarn.lock
 
-key.js
+
 
 
 # Environment variables
@@ -71,6 +71,7 @@ uploads/
 .project
 .settings/
 .tmproj
-*.esproj
+*.esproj    
+keys.js
 nbproject/
 
